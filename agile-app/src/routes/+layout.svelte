@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Construction from './../../node_modules/lucide-svelte/dist/icons/construction.svelte';
 	import '../app.css';
 	let { children } = $props();
 </script>
@@ -6,7 +7,10 @@
 <nav class="mb-2 flex flex-row items-center justify-between bg-primary p-2 text-white">
 	<div class="flex flex-row">
 		<img src="/Agile_Logo.JPEG" alt="Logo" height="auto" width="60px" />
-		<h1>Agile Construction</h1>
+		<div class="flex flex-col px-2">
+			<h1 class="font-xl">Agile</h1>
+			<h3>Construction</h3>
+		</div>
 	</div>
 
 	<ul class="justfity-between flex pr-4">
