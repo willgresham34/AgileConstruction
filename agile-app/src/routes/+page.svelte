@@ -5,7 +5,7 @@
 	const plugin = Autoplay({ delay: 5000, stopOnInteraction: true });
 </script>
 
-<div class=" w-full border p-4">
+<div class=" mt-2 w-full border p-4">
 	<Carousel.Root plugins={[plugin]}>
 		<Carousel.Content>
 			<Carousel.Item class="basis-1/3">Item 1</Carousel.Item>

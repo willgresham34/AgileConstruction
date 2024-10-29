@@ -76,3 +76,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.bilbo-regular {
+  font-family: "Bilbo", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: xx-large;
+}

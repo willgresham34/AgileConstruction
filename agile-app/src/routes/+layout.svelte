@@ -4,7 +4,9 @@
 	let { children } = $props();
 </script>
 
-<nav class="mb-2 flex flex-row items-center justify-between bg-primary p-2 text-white">
+<nav
+	class="bg-primary sticky top-0 z-10 flex flex-row items-center justify-between p-2 text-white shadow-xl"
+>
 	<div class="flex flex-row">
 		<img src="/Agile_Logo.JPEG" alt="Logo" height="auto" width="60px" />
 		<div class="flex flex-col px-2">
@@ -22,11 +24,29 @@
 	</ul>
 </nav>
 
-{@render children()}
+<div class="body">
+	{@render children()}
+</div>
+
+<footer class="flex items-end justify-center">
+	<div class="m-2 text-slate-400">Site maintained by Will Gresham</div>
+</footer>
 
 <style>
 	li {
 		font-size: larger;
 		padding: 0rem 0.5rem;
+	}
+
+	nav {
+		height: 7vh;
+	}
+
+	.body {
+		min-height: 90vh;
+	}
+
+	footer {
+		height: 3vh;
 	}
 </style>
