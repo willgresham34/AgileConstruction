@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Construction from './../../node_modules/lucide-svelte/dist/icons/construction.svelte';
 	import '../app.css';
 	let { children } = $props();
 </script>
@@ -40,6 +39,7 @@
 
 	nav {
 		height: 7vh;
+		min-height: 65px;
 	}
 
 	.body {
