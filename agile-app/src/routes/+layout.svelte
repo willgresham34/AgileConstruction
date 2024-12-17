@@ -19,6 +19,8 @@
 		<li>|</li>
 		<li><a href="/about">About</a></li>
 		<li>|</li>
+		<li><a href="/gallery">Gallery</a></li>
+		<li>|</li>
 		<li><a href="/contact">Contact</a></li>
 	</ul>
 </nav>
