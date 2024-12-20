@@ -26,16 +26,13 @@
 
 	<!-- Navigation Menu -->
 	<ul
-		class="nav-links flex pr-4 text-white md:static md:flex md:translate-y-0 md:flex-row md:opacity-100"
+		class="nav-links bg-accent-foreground flex pr-4 text-white md:static md:flex md:translate-y-0 md:flex-row md:opacity-100"
 		class:hidden={!isMenuOpen}
 		class:translate-y-full={isMenuOpen}
 	>
 		<li><a href="/" onclick={toggleMenu}>Home</a></li>
-		<li class="separatorLi">|</li>
 		<li><a href="/about" onclick={toggleMenu}>About</a></li>
-		<li class="separatorLi">|</li>
 		<li><a href="/gallery" onclick={toggleMenu}>Gallery</a></li>
-		<li class="separatorLi">|</li>
 		<li><a href="/contact" onclick={toggleMenu}>Contact</a></li>
 	</ul>
 </nav>
@@ -44,12 +41,71 @@
 	{@render children()}
 </div>
 
-<footer class="flex items-end justify-center">
-	<div class="m-2 text-slate-400">Site maintained by Will Gresham</div>
+<footer class="mt-8 text-white">
+	<div class=" mx-auto max-w-7xl px-6 py-6">
+		<div class="grid grid-cols-2 gap-6 sm:grid-cols-3">
+			<!-- About, Contact, and Gallery Links -->
+			<div>
+				<h3 class="mb-4 text-lg font-semibold">Quick Links</h3>
+				<ul>
+					<li><a href="/about" class="text-slate-300 hover:text-white">About Us</a></li>
+					<li><a href="/contact" class="text-slate-300 hover:text-white">Contact</a></li>
+					<li><a href="/gallery" class="text-slate-300 hover:text-white">Gallery</a></li>
+				</ul>
+			</div>
+
+			<!-- Social Media Links -->
+			<div>
+				<h3 class="mb-4 text-lg font-semibold">Follow Us</h3>
+				<ul>
+					<li>
+						<a
+							href="https://www.facebook.com/agileconstructiongaagile"
+							target="_blank"
+							class="text-slate-300 hover:text-white">Facebook</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://www.instagram.com/AgileConstruction/"
+							target="_blank"
+							class="text-slate-300 hover:text-white">Instagram</a
+						>
+					</li>
+					<li><a href="#" class="text-slate-300 hover:text-white" target="_blank">Twitter</a></li>
+				</ul>
+			</div>
+
+			<!-- Contact Info (Phone, Email) -->
+			<div class="col-span-2 sm:col-span-1">
+				<h3 class="mb-4 text-lg font-semibold">Contact Information</h3>
+				<ul>
+					<li>
+						<a href="tel:+17705607975" class="text-slate-300 hover:text-white"
+							>Phone: +1 (770) 560-7975</a
+						>
+					</li>
+					<li>
+						<a href="mailto:example@email.com" class="text-slate-300 hover:text-white"
+							>agileconstruction123@gmail.com</a
+						>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Site Maintained Info -->
+		</div>
+	</div>
+	<div class=" flex w-full items-center justify-center gap-2 py-2">
+		<div class="text-slate-400">Site maintained by</div>
+		<div class="font-semibold">Will Gresham</div>
+	</div>
+	<!-- <div class="mt-6 pt-4 text-center text-sm">
+		<p>&copy; 2024 Agile Construction. All rights reserved.</p>
+	</div> -->
 </footer>
 
 <style>
-	/* General styles */
 	li {
 		font-size: larger;
 		padding: 0rem 0.5rem;
@@ -65,7 +121,7 @@
 	}
 
 	footer {
-		height: 3vh;
+		background-color: #1d4263;
 	}
 
 	/* Hamburger Icon */
@@ -91,7 +147,6 @@
 		top: 100%;
 		left: 0;
 		right: 0;
-		background-color: #1a202c; /* Adjust to match theme */
 		flex-direction: column;
 		opacity: 0;
 		visibility: hidden;
@@ -122,10 +177,6 @@
 		transform: translateY(0);
 	}
 
-	.separatorLi {
-		display: none;
-	}
-
 	/* Media query for larger screens */
 	@media (min-width: 640px) {
 		.hamburger-icon {
@@ -144,10 +195,6 @@
 
 		.nav-links li {
 			padding: 0rem 0.5rem;
-		}
-
-		.separatorLi {
-			display: flex;
 		}
 	}
 </style>
