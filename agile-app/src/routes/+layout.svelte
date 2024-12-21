@@ -45,7 +45,9 @@
 	class="bg-primary sticky top-0 z-10 flex items-center justify-between p-2 text-white shadow-xl"
 >
 	<div class="flex items-center">
-		<img src="/Agile_Logo.JPEG" alt="Logo" height="auto" width="60px" />
+		<a href="/">
+			<img src="/Agile_Logo.JPEG" alt="Logo" height="auto" width="60px" />
+		</a>
 	</div>
 
 	<!-- Hamburger Icon for small screens -->
@@ -57,7 +59,7 @@
 
 	<!-- Navigation Menu -->
 	<ul
-		class="nav-links flex pr-4 text-white md:static md:flex md:translate-y-0 md:flex-row md:opacity-100"
+		class="nav-links bg-accent-foreground flex pr-4 text-white md:static md:flex md:translate-y-0 md:flex-row md:opacity-100"
 		class:hidden={!isMenuOpen}
 		class:translate-y-full={isMenuOpen}
 	>
@@ -111,7 +113,7 @@
 							class="text-slate-300 hover:text-white">Instagram</a
 						>
 					</li>
-					<li><a href="#" class="text-slate-300 hover:text-white" target="_blank">Twitter</a></li>
+					<!-- <li><a href="#" class="text-slate-300 hover:text-white" target="_blank">Twitter</a></li> -->
 				</ul>
 			</div>
 
@@ -125,7 +127,7 @@
 						>
 					</li>
 					<li>
-						<a href="mailto:example@email.com" class="text-slate-300 hover:text-white"
+						<a href="mailto:example@email.com" class=" text-slate-300 hover:text-white"
 							>agileconstruction123@gmail.com</a
 						>
 					</li>
@@ -136,7 +138,7 @@
 		</div>
 	</div>
 	<div class=" flex w-full items-center justify-center gap-2 py-2">
-		<div class="text-slate-400">Site maintained by</div>
+		<div class="text-slate-400">Site developed and maintained by</div>
 		<div class="font-semibold">Will Gresham</div>
 	</div>
 	<!-- <div class="mt-6 pt-4 text-center text-sm">
@@ -241,6 +243,12 @@
 		transform: translateY(0);
 	}
 
+	.nav-links li.selected a {
+		border-bottom: 2px solid white;
+		padding-bottom: 0.25rem;
+		color: #f0f0f0;
+	}
+
 	/* Media query for larger screens */
 	@media (min-width: 640px) {
 		.hamburger-icon {
@@ -259,12 +267,6 @@
 
 		.nav-links li {
 			padding: 0rem 0.5rem;
-		}
-
-		.nav-links li.selected a {
-			border-bottom: 2px solid white;
-			padding-bottom: 0.25rem;
-			color: #f0f0f0;
 		}
 	}
 </style>
