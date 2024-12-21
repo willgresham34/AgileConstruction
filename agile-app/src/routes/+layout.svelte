@@ -18,9 +18,9 @@
 
 	function handleResize() {
 		if (window.innerWidth > 640) {
-			isMenuOpen = true; // Keep menu open on larger screens
+			isMenuOpen = true;
 		} else {
-			isMenuOpen = false; // Close menu on smaller screens
+			isMenuOpen = false;
 		}
 	}
 
