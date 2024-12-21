@@ -1,11 +1,7 @@
-export const galleryPhotos = [
+export const carouselPhotos = [
     "covered_deck.jpg",
-    "covered_deck_2.jpg",
     "RY_Kitchen.jpg",
     "RY_Truss.jpeg",
-    "AddOnR2.jpeg",
-    "AddOnR3.jpeg",
-    "AddOnR4.jpeg",
     "AddOnR5.jpeg",
     "AddOnRoom.jpeg",
     "BY_Remodel.jpg",
@@ -13,8 +9,6 @@ export const galleryPhotos = [
     "D_house.jpg",
     "D_Garage.jpeg",
     "Night_Deck.jpeg",
-    "Night_deck2.jpeg",
     "Porch1.jpeg",
     "Porch2_1.jpeg",
-    "Porch2.jpeg",
   ];

@@ -1,18 +1,9 @@
 <script lang="ts">
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
 	import Autoplay from 'embla-carousel-autoplay';
-
-	const images = import.meta.glob('/builds/horiz/*.{jpg,png,jpeg}', {
-		query: '?url',
-		import: 'default'
-	});
+	import { carouselPhotos } from './../lib/carouselPhotos';
 
 	const plugin = Autoplay({ delay: 5000, stopOnInteraction: true });
-
-	let imageUrls = [];
-	for (const path in images) {
-		imageUrls.push(images[path]());
-	}
 </script>
 
 <div class="w-full">
@@ -45,24 +36,14 @@
 			</div>
 		</div>
 	</div>
-	<div class="mb-4">
+	<div class="carousel mb-4">
 		<Carousel.Root plugins={[plugin]}>
 			<Carousel.Content>
-				<Carousel.Item class="basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-					><img src="/builds/horiz/dads_house.jpg" alt="build1" /></Carousel.Item
-				>
-				<Carousel.Item class="basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-					><img src="/builds/horiz/cool_house2.jpg" alt="build2" /></Carousel.Item
-				>
-				<Carousel.Item class="basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-					><img src="/builds/horiz/AddOnR4.jpeg" alt="build3" /></Carousel.Item
-				>
-				<Carousel.Item class="basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-					><img src="/builds/horiz/BackYard_Remodel.jpg" alt="build4" /></Carousel.Item
-				>
-				<Carousel.Item class="basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-					><img src="/builds/horiz/AddOnRoom.jpeg" alt="build5" /></Carousel.Item
-				>
+				{#each carouselPhotos as photo}
+					<Carousel.Item class=" basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+						><img src={`/builds/${photo}`} alt="build1" /></Carousel.Item
+					>
+				{/each}
 			</Carousel.Content>
 		</Carousel.Root>
 	</div>
@@ -127,7 +108,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-image: url('/dads_house.jpg');
+		background-image: url('/builds/D_house.jpg');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -141,6 +122,13 @@
 		color: white;
 		text-align: center;
 		padding: 1em;
+	}
+
+	.carousel img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		aspect-ratio: 4 / 3;
 	}
 
 	.logoContainer {

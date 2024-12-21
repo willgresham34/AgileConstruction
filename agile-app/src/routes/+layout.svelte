@@ -1,13 +1,44 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import '../app.css';
+	import { afterNavigate } from '$app/navigation';
 
 	let { children } = $props();
 	let isMenuOpen = $state(false);
+	let currentPath = $state('');
 
-	// Toggle menu visibility
-	function toggleMenu() {
-		isMenuOpen = !isMenuOpen;
+	// Determine the current URL path
+	onMount(() => {
+		currentPath = window.location.pathname;
+	});
+
+	afterNavigate(() => {
+		currentPath = window.location.pathname;
+	});
+
+	function handleResize() {
+		if (window.innerWidth > 640) {
+			isMenuOpen = true; // Keep menu open on larger screens
+		} else {
+			isMenuOpen = false; // Close menu on smaller screens
+		}
 	}
+
+	function toggleMenu() {
+		if (window.innerWidth < 640) {
+			isMenuOpen = !isMenuOpen;
+		}
+	}
+
+	onMount(() => {
+		handleResize(); // Check size when component mounts
+		window.addEventListener('resize', handleResize);
+
+		// Cleanup listener when component is destroyed
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	});
 </script>
 
 <nav
@@ -26,14 +57,22 @@
 
 	<!-- Navigation Menu -->
 	<ul
-		class="nav-links bg-accent-foreground flex pr-4 text-white md:static md:flex md:translate-y-0 md:flex-row md:opacity-100"
+		class="nav-links flex pr-4 text-white md:static md:flex md:translate-y-0 md:flex-row md:opacity-100"
 		class:hidden={!isMenuOpen}
 		class:translate-y-full={isMenuOpen}
 	>
-		<li><a href="/" onclick={toggleMenu}>Home</a></li>
-		<li><a href="/about" onclick={toggleMenu}>About</a></li>
-		<li><a href="/gallery" onclick={toggleMenu}>Gallery</a></li>
-		<li><a href="/contact" onclick={toggleMenu}>Contact</a></li>
+		<li class:selected={currentPath === '/'}>
+			<a href="/" onclick={toggleMenu}>Home</a>
+		</li>
+		<li class:selected={currentPath === '/about'}>
+			<a href="/about" onclick={toggleMenu}>About</a>
+		</li>
+		<li class:selected={currentPath === '/gallery'}>
+			<a href="/gallery" onclick={toggleMenu}>Gallery</a>
+		</li>
+		<li class:selected={currentPath === '/contact'}>
+			<a href="/contact" onclick={toggleMenu}>Contact</a>
+		</li>
 	</ul>
 </nav>
 
@@ -124,6 +163,26 @@
 		background-color: #1d4263;
 	}
 
+	@keyframes fadeDown {
+		from {
+			opacity: 0;
+			transform: translateY(-20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
 	/* Hamburger Icon */
 	.hamburger-icon {
 		display: flex;
@@ -132,6 +191,11 @@
 		width: 30px;
 		height: 20px;
 		cursor: pointer;
+		animation: fadeDown 0.5s ease-out;
+	}
+
+	.body {
+		animation: fadeIn 1s ease-in-out;
 	}
 
 	.hamburger-icon .line {
@@ -186,7 +250,7 @@
 		.nav-links {
 			display: flex;
 			position: static;
-			background-color: #1d4263;
+			background-color: transparent;
 			flex-direction: row;
 			opacity: 1;
 			visibility: visible;
@@ -195,6 +259,12 @@
 
 		.nav-links li {
 			padding: 0rem 0.5rem;
+		}
+
+		.nav-links li.selected a {
+			border-bottom: 2px solid white;
+			padding-bottom: 0.25rem;
+			color: #f0f0f0;
 		}
 	}
 </style>

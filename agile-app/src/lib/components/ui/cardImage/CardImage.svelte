@@ -1,6 +1,12 @@
 <script>
 	export let imageSrc = '';
 	export let altText = '';
+	/**
+	 * @type {string | any[]}
+	 */
+	export let photos = [];
+	export let currentIndex = 0;
+	export let setCurrentIndex;
 
 	// Modal visibility state
 	let showModal = false;
@@ -13,6 +19,16 @@
 			openModal();
 		}
 	};
+
+	const showNext = () => {
+		const nextIndex = (currentIndex + 1) % photos.length;
+		setCurrentIndex(nextIndex);
+	};
+
+	const showPrevious = () => {
+		const prevIndex = (currentIndex - 1 + photos.length) % photos.length;
+		setCurrentIndex(prevIndex);
+	};
 </script>
 
 <div
@@ -20,7 +36,10 @@
 	role="button"
 	tabindex="0"
 	aria-label="Open image"
-	on:click={openModal}
+	on:click={() => {
+		openModal();
+		setCurrentIndex(currentIndex);
+	}}
 	on:keydown={handleKeydown}
 >
 	<img src={imageSrc} alt={altText} width="auto" />
@@ -29,8 +48,14 @@
 <!-- Modal -->
 {#if showModal}
 	<div class="modal" role="dialog" aria-modal="true" aria-label="Enlarged image">
-		<button class="close-btn" on:click={closeModal} tabindex="0"> &times; </button>
-		<img src={imageSrc} alt={altText} />
+		<button class="close-btn" on:click={closeModal} tabindex="0">&times;</button>
+		<img src={photos[currentIndex]} alt={altText} />
+
+		<!-- Previous Button -->
+		<button class="prev-btn" on:click={showPrevious}>&larr;</button>
+
+		<!-- Next Button -->
+		<button class="next-btn" on:click={showNext}>&rarr;</button>
 	</div>
 {/if}
 
@@ -38,7 +63,6 @@
 	.card {
 		max-width: 300px;
 		max-height: 225px;
-
 		overflow: hidden;
 		border-radius: 8px;
 		cursor: pointer;
@@ -80,5 +104,27 @@
 		font-size: 2rem;
 		cursor: pointer;
 		user-select: none;
+	}
+
+	.prev-btn,
+	.next-btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		color: white;
+		border: none;
+		font-size: 2.5rem;
+		padding: 0.5rem 0.5rem;
+		cursor: pointer;
+		user-select: none;
+		border-radius: 25%;
+	}
+
+	.prev-btn {
+		left: 10px;
+	}
+
+	.next-btn {
+		right: 10px;
 	}
 </style>

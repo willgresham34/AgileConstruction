@@ -2,15 +2,51 @@
 	import { Input } from '$lib/components/ui/input/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Label } from '$lib/components/ui/label/index.js';
-	import { Separator } from '$lib/components/ui/separator';
-	import { text } from '@sveltejs/kit';
 	import { Textarea } from '$lib/components/ui/textarea';
-	let contactInfo = '';
+	import * as Select from '$lib/components/ui/select';
+	import type { Selected } from 'bits-ui';
+	import emailjs from 'emailjs-com';
 
-	const handleSubmit = (event: Event) => {
-		event.preventDefault(); // Prevent the default form submission
-		// Handle the form submission logic here, e.g., sending data to an API
-		console.log('Submitted:', contactInfo);
+	let formData = {
+		email: '',
+		phone: '',
+		firstName: '',
+		lastName: '',
+		contactPreference: '',
+		subject: '',
+		message: ''
+	};
+
+	const handleContactPreferenceChange = (event: Selected<string> | undefined) => {
+		const pref = event?.value ?? ''; //
+		formData.contactPreference = pref;
+	};
+
+	const handleSubmit = async (event: Event) => {
+		event.preventDefault();
+
+		try {
+			const response = await emailjs.send(
+				'service_agileConstrct',
+				'agileCon_SiteEmail',
+				formData,
+				'WBUUvS6M_Z3niupKb'
+			);
+			console.log('Email sent successfully:', response);
+			formData = {
+				email: '',
+				phone: '',
+				firstName: '',
+				lastName: '',
+				contactPreference: '',
+				subject: '',
+				message: ''
+			};
+			alert('Your message has been sent!');
+		} catch (error) {
+			console.error('Failed to send email:', error);
+			alert('There was an error sending your message.');
+		}
 	};
 </script>
 
@@ -21,7 +57,9 @@
 	<div class="mx-2">
 		<div class=" grid grid-cols-1 gap-4 rounded-xl sm:grid-cols-2">
 			<!-- left col -->
-			<div class="bg-primary grid grid-cols-2 gap-4 rounded-xl p-4 shadow-2xl sm:grid-cols-1">
+			<div
+				class="bg-accent-foreground grid grid-cols-2 gap-4 rounded-xl p-4 shadow-2xl sm:grid-cols-1"
+			>
 				<div class="flex flex-col items-center justify-center">
 					<div class="text-gray-500 transition duration-200 hover:text-blue-500" id="phoneIcon">
 						<svg
@@ -80,38 +118,71 @@
 			</div>
 			<!-- right col -->
 			<div class=" rounded-lg border bg-white p-2 shadow-2xl">
-				<form on:submit={handleSubmit}>
+				<form on:submit={handleSubmit} class="">
 					<div class="form-body flex flex-col gap-3 p-2">
 						<div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
 							<div>
 								<Label for="email">Email</Label>
-								<Input type="email" id="email" placeholder="example@gmail.com" class="" />
+								<Input
+									type="email"
+									id="email"
+									placeholder="example@gmail.com"
+									bind:value={formData.email}
+								/>
 							</div>
 							<div>
 								<Label for="phone">Phone # <span class="text-xs">(Optional)</span></Label>
-								<Input type="phone" id="phone" placeholder="123-456-7890" class="" />
+								<Input
+									type="text"
+									id="phone"
+									placeholder="123-456-7890"
+									bind:value={formData.phone}
+								/>
 							</div>
 						</div>
 						<div class="flex w-full gap-2">
 							<div class="w-1/2">
 								<Label for="firstName">First Name</Label>
-								<Input type="firstName" id="firstName" placeholder="John" class="" />
+								<Input
+									type="text"
+									id="firstName"
+									placeholder="John"
+									bind:value={formData.firstName}
+								/>
 							</div>
 							<div class="w-1/2">
 								<Label for="lastName">Last Name</Label>
-								<Input type="lastName" id="lastName" placeholder="Doe" class="" />
+								<Input type="text" id="lastName" placeholder="Doe" bind:value={formData.lastName} />
 							</div>
 						</div>
 						<div>
+							<Label for="contactPreference">Contact Preference</Label>
+							<Select.Root
+								onSelectedChange={(v: Selected<string> | undefined) =>
+									handleContactPreferenceChange(v)}
+							>
+								<Select.Trigger class="">
+									<Select.Value placeholder="Please Choose one" />
+								</Select.Trigger>
+								<Select.Content>
+									<Select.Item value="Email">Email</Select.Item>
+									<Select.Item value="Text Message">Text Message</Select.Item>
+									<Select.Item value="Phone Call">Phone Call</Select.Item>
+								</Select.Content>
+								<Select.Input name="contactPreference" bind:value={formData.contactPreference} />
+							</Select.Root>
+						</div>
+
+						<div>
 							<Label for="subject">Subject</Label>
-							<Input type="subject" id="subject" placeholder="" class="" />
+							<Input type="text" id="subject" placeholder="" bind:value={formData.subject} />
 						</div>
 						<div>
 							<Label for="message">Message</Label>
-							<Textarea id="message" placeholder="" class="h-56" />
+							<Textarea id="message" placeholder="" class="h-56" bind:value={formData.message} />
 						</div>
 
-						<Button type="submit" class="text-lg font-semibold">Send</Button>
+						<Button type="submit" class="bg-accent-foreground text-lg font-semibold">Send</Button>
 					</div>
 				</form>
 			</div>
