@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
 	import Autoplay from 'embla-carousel-autoplay';
-	import { carouselPhotos } from './../lib/carouselPhotos';
+	import { carouselPhotos } from '$lib/carouselPhotos';
 
 	const plugin = Autoplay({ delay: 5000, stopOnInteraction: true });
 </script>
@@ -11,7 +11,9 @@
 		<div class="flex w-full items-center justify-center" id="homeBanner">
 			<div class="bannerText flex flex-col items-center">
 				<h1>Building homes in Georgia with over 25+ years of experience</h1>
-				<h2>State Licensed we are your go-to for any residential construction project needs!</h2>
+				<span class="bannerSubText"
+					>State Licensed we are your go-to for any residential construction project needs!</span
+				>
 			</div>
 		</div>
 	</div>
@@ -94,11 +96,15 @@
 		text-align: center;
 	}
 
+	.bannerSubText {
+		font-size: x-large;
+	}
+
 	#homeBanner {
 		position: relative;
-		width: 100%; /* Adjust as needed */
-		height: 40vh; /* Adjust as needed */
-		overflow: hidden; /* Ensure pseudo-element stays within bounds */
+		width: 100%;
+		height: 40vh;
+		overflow: hidden;
 	}
 
 	#homeBanner::before {
@@ -168,23 +174,28 @@
 
 	@media (max-width: 640px) {
 		h1 {
-			font-size: xx-large; /* Smaller font size for small screens */
+			font-size: larger;
+			font-weight: 600;
 		}
 
 		h2 {
-			font-size: large; /* Adjust font size */
+			font-size: large;
 		}
 
 		h3 {
-			font-size: medium; /* Adjust font size */
+			font-size: medium;
+		}
+
+		.bannerSubText {
+			font-size: medium;
 		}
 
 		#homeBanner {
-			height: 25vh; /* Adjust height for smaller screens */
+			height: 25vh;
 		}
 
 		.bannerText {
-			padding: 0.5em; /* Reduce padding */
+			padding: 0.5em;
 		}
 	}
 </style>
