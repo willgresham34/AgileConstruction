@@ -27,7 +27,7 @@
 
 		try {
 			const response = await emailjs.send(
-				'service_agileConstrct',
+				'agileConEmailService',
 				'agileCon_SiteEmail',
 				formData,
 				'WBUUvS6M_Z3niupKb'
