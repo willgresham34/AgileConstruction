@@ -73,7 +73,7 @@
 						</svg>
 					</div>
 					<h2 class="text-xl text-white">Call Us</h2>
-					<h1 class="text-white">770-560-7975</h1>
+					<a href="tel:+17705607975" class="text-white">770-560-7975</a>
 				</div>
 				<div class="flex flex-col items-center justify-center">
 					<a
