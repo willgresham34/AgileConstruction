@@ -66,8 +66,8 @@
 		<li class:selected={currentPath === '/'}>
 			<a href="/" onclick={toggleMenu}>Home</a>
 		</li>
-		<li class:selected={currentPath === '/about'}>
-			<a href="/about" onclick={toggleMenu}>About Us</a>
+		<li class:selected={currentPath === '/about-us'}>
+			<a href="/about-us" onclick={toggleMenu}>About Us</a>
 		</li>
 		<li class:selected={currentPath === '/gallery'}>
 			<a href="/gallery" onclick={toggleMenu}>Gallery</a>
@@ -89,7 +89,7 @@
 			<div>
 				<h3 class="mb-4 text-lg font-semibold">Quick Links</h3>
 				<ul>
-					<li><a href="/about" class="text-slate-300 hover:text-white">About Us</a></li>
+					<li><a href="/about-us" class="text-slate-300 hover:text-white">About Us</a></li>
 					<li><a href="/contact" class="text-slate-300 hover:text-white">Contact</a></li>
 					<li><a href="/gallery" class="text-slate-300 hover:text-white">Gallery</a></li>
 				</ul>
