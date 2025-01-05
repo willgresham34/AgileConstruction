@@ -46,7 +46,7 @@
 >
 	<div class="flex items-center">
 		<a href="/">
-			<img src="/Agile_Logo.JPEG" alt="Logo" height="auto" width="60px" />
+			<img src="/Agile_Logo.JPEG" alt="Logo" height="60px" width="60px" />
 		</a>
 	</div>
 
@@ -67,7 +67,7 @@
 			<a href="/" onclick={toggleMenu}>Home</a>
 		</li>
 		<li class:selected={currentPath === '/about'}>
-			<a href="/about" onclick={toggleMenu}>About</a>
+			<a href="/about" onclick={toggleMenu}>About Us</a>
 		</li>
 		<li class:selected={currentPath === '/gallery'}>
 			<a href="/gallery" onclick={toggleMenu}>Gallery</a>
