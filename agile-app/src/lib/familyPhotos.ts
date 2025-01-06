@@ -1,13 +1,13 @@
 export const familyPhotos = [
-    "Family.jpg",
-    "DadAndPapa.jpg",
-    "AshAndDad.jpg",
-    "DadAndLauren.jpg",
-    "DadJeffAndPapa.jpg",
-    "Dempseys.jpg",
-    "Family2.jpg",
-    "lauren_grad.jpg",
-    "UntFamily.jpg",
-    "Untsfamily2.jpg",
-    "WillGrad.jpg"
+    "Family.avif",
+    "DadAndPapa.avif",
+    "AshAndDad.avif",
+    "DadAndLauren.avif",
+    "DadJeffAndPapa.avif",
+    "Dempseys.avif",
+    "Family2.avif",
+    "lauren_grad.avif",
+    "UntFamily.avif",
+    "Untsfamily2.avif",
+    "WillGrad.avif"
 ];

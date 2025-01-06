@@ -101,7 +101,7 @@
 				<ul>
 					<li>
 						<a
-							href="https://www.facebook.com/agileconstructiongaagile"
+							href="https://www.facebook.com/agileconstructionga/"
 							target="_blank"
 							class="text-slate-300 hover:text-white">Facebook</a
 						>
