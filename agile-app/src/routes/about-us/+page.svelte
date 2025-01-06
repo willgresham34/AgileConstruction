@@ -12,7 +12,7 @@
 	</div>
 	<div class="about-us grid grid-cols-1 gap-4 lg:grid-cols-2">
 		<div class="flex items-center justify-center">
-			<img class="team-photo" src="KrissyAndMichael.jpg" alt="Our Team" />
+			<img class="team-photo" src="KrissyAndMichael.avif" alt="Our Team" />
 		</div>
 		<div class="lg:text-md text-lg">
 			<p>

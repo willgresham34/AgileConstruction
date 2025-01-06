@@ -108,7 +108,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-image: url('/builds/D_house.jpg');
+		background-image: url('/builds/D_house.avif');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
