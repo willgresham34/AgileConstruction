@@ -46,31 +46,23 @@
 		</Carousel.Root>
 	</div>
 	<div class="my-4 grid w-full grid-cols-1 sm:grid-cols-2">
-		<div class="grid-item mb-8 flex items-center sm:mb-0">
+		<div class="grid-item mb-8 flex items-center justify-center sm:mb-0">
 			<section class="h-auto">
-				<div class="mx-auto px-4 text-center">
-					<div>
-						<h2>Constructions we handle:</h2>
-						<ul>
-							<li>New Builds</li>
-							<li>Basements</li>
-							<li>Kitchens</li>
-							<li>Bathrooms</li>
-							<li>Covered Porches and Decks</li>
-							<li>Sunrooms</li>
-							<li>Additions</li>
-							<li>New Roofs</li>
-							<li>Grading</li>
-							<li>Driveway Pours</li>
+				<div class="mx-auto px-4">
+					<h2 class="">Constructions We Handle:</h2>
+					<div class="text-center sm:text-start">
+						<ul class=" grid grid-cols-1 py-2 sm:grid-cols-2">
+							<li class="bannerSubText">New Builds</li>
+							<li class="bannerSubText">Basements</li>
+							<li class="bannerSubText">Kitchens</li>
+							<li class="bannerSubText">Bathrooms</li>
+							<li class="bannerSubText">Sunrooms</li>
+							<li class="bannerSubText">Additions</li>
+							<li class="bannerSubText">New Roofs</li>
+							<li class="bannerSubText">Grading</li>
+							<li class="bannerSubText">Driveway Pours</li>
+							<li class="bannerSubText">Covered Porches and Decks</li>
 						</ul>
-					</div>
-					<div class="py-3">
-						<a
-							href="/about"
-							class="bg-accent hover:bg-accent-foreground rounded-lg px-6 py-3 text-lg text-white"
-						>
-							Learn More
-						</a>
 					</div>
 				</div>
 			</section>
