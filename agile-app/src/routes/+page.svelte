@@ -10,10 +10,8 @@
 	<div class="background-container">
 		<div class="flex w-full items-center justify-center" id="homeBanner">
 			<div class="bannerText flex flex-col items-center">
-				<h1>Building homes in Georgia with over 25+ years of experience</h1>
-				<span class="bannerSubText"
-					>State Licensed we are your go-to for any residential construction project needs!</span
-				>
+				<h1>New Home and Renovation Experts</h1>
+				<span class="bannerSubText">Over 25 Years of Experience! State Licensed and Insured!</span>
 			</div>
 		</div>
 	</div>
@@ -22,12 +20,10 @@
 		<div class="m-12 flex h-full flex-col items-center gap-4">
 			<h2>Welcome Home!</h2>
 			<h3>
-				At Agile Construction, we're dedicated to bringing your vision for your home to life.
-				Whether you're dreaming of starting from the ground up with a brand-new build, enhancing
-				your living space with a custom addition, or simply adding the perfect deck to enjoy your
-				outdoor moments, we're here to help every step of the way. Our goal is to make the process
-				smooth, enjoyable, and tailored to your needs, so you can sit back and watch your dreams
-				become a reality. Let us help you create a home you'll love for years to come!
+				At Agile Construction, we're dedicated to bringing the vision for your home to life. Whether
+				you're dreaming of starting from the ground up with a brand-new build, enhancing your living
+				space with a custom addition, or simply adding the perfect deck to enjoy your outdoor
+				moments, we're here to help every step of the way. We want to be your Builder for life!
 			</h3>
 			<div class="mt-4">
 				<a
@@ -50,25 +46,23 @@
 		</Carousel.Root>
 	</div>
 	<div class="my-4 grid w-full grid-cols-1 sm:grid-cols-2">
-		<div class="grid-item mb-8 flex items-center sm:mb-0">
+		<div class="grid-item mb-8 flex items-center justify-center sm:mb-0">
 			<section class="h-auto">
-				<div class="mx-auto px-4 text-center">
-					<div>
-						<h2 class="mb-2 text-xl sm:text-2xl">About Agile Construction</h2>
-						<h3 class="text-md mx-2 my-4 sm:text-lg">
-							With over 25 years of experience in the construction industry, Agile Construction is
-							dedicated to turning your dream home into a reality. From custom builds to innovative
-							renovations, we bring unmatched expertise and attention to detail to every project we
-							undertake.
-						</h3>
-					</div>
-					<div class="py-3">
-						<a
-							href="/about"
-							class="bg-accent hover:bg-accent-foreground rounded-lg px-6 py-3 text-lg text-white"
-						>
-							Learn More
-						</a>
+				<div class="mx-auto px-4">
+					<h2 class="">Constructions We Handle:</h2>
+					<div class="text-center sm:text-start">
+						<ul class=" grid grid-cols-1 py-2 sm:grid-cols-2">
+							<li class="bannerSubText">New Builds</li>
+							<li class="bannerSubText">Basements</li>
+							<li class="bannerSubText">Kitchens</li>
+							<li class="bannerSubText">Bathrooms</li>
+							<li class="bannerSubText">Sunrooms</li>
+							<li class="bannerSubText">Additions</li>
+							<li class="bannerSubText">New Roofs</li>
+							<li class="bannerSubText">Grading</li>
+							<li class="bannerSubText">Driveway Pours</li>
+							<li class="bannerSubText">Covered Porches and Decks</li>
+						</ul>
 					</div>
 				</div>
 			</section>
@@ -114,7 +108,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-image: url('/builds/D_house.jpg');
+		background-image: url('/builds/D_house.avif');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
