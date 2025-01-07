@@ -18,7 +18,7 @@
 			<p>
 				Welcome to <span class="text-accent-foreground font-semibold">Agile Construction</span>,
 				your trusted partner for all your construction and renovation needs! Our founder Michael
-				Gresham Jr is a second generation builder who has been serving all over georgia for over
+				Gresham Jr is a second generation builder who has been serving all over Georgia for over
 				<span class="text-accent-foreground font-semibold"> 30 years</span>.
 			</p>
 			<p>
