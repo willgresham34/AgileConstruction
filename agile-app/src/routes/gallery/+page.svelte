@@ -1,5 +1,23 @@
 <script lang="ts">
-	import { galleryPhotos } from './../../lib/galleryPhotos';
+	//import { galleryPhotos } from './../../lib/galleryPhotos';
+	import { onMount } from 'svelte';
+
+	let galleryPhotos: { id: string; name: string; webViewLink: string }[] = [];
+
+	// Fetch files from the API
+	onMount(async () => {
+		try {
+			const response = await fetch('/api/listBuilds');
+			if (!response.ok) {
+				throw new Error('Failed to fetch data');
+			}
+			const data = await response.json();
+			galleryPhotos = data.files;
+			console.log(galleryPhotos);
+		} catch (error) {
+			console.error('Error fetching photos:', error);
+		}
+	});
 
 	// Current index of the modal
 	let currentIndex = 0;
@@ -47,7 +65,7 @@
 				}}
 				on:keydown={handleKeydown}
 			>
-				<img src={`/builds/${photo}`} alt={`Build ${i}`} />
+				<img src={`https://drive.google.com/uc?export=view&id=${photo.id}`} alt={`Build ${i}`} />
 			</div>
 		{/each}
 	</div>
