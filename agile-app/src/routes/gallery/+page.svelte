@@ -1,22 +1,11 @@
 <script lang="ts">
-	//import { galleryPhotos } from './../../lib/galleryPhotos';
 	import { onMount } from 'svelte';
+	import { fetchPhotosFromPhotoset } from '$lib/flickrService';
 
-	let galleryPhotos: { id: string; name: string; webViewLink: string }[] = [];
+	let galleryPhotos: any[] = [];
 
-	// Fetch files from the API
 	onMount(async () => {
-		try {
-			const response = await fetch('/api/listBuilds');
-			if (!response.ok) {
-				throw new Error('Failed to fetch data');
-			}
-			const data = await response.json();
-			galleryPhotos = data.files;
-			console.log(galleryPhotos);
-		} catch (error) {
-			console.error('Error fetching photos:', error);
-		}
+		galleryPhotos = await fetchPhotosFromPhotoset('72177720323058330');
 	});
 
 	// Current index of the modal
@@ -65,7 +54,7 @@
 				}}
 				on:keydown={handleKeydown}
 			>
-				<img src={`https://drive.google.com/uc?export=view&id=${photo.id}`} alt={`Build ${i}`} />
+				<img src={photo.src} alt={`Build ${photo.title}`} />
 			</div>
 		{/each}
 	</div>
@@ -75,7 +64,7 @@
 {#if showModal}
 	<div class="modal" role="dialog" aria-modal="true" aria-label="Enlarged image">
 		<button class="close-btn" on:click={closeModal} tabindex="0">&times;</button>
-		<img src={`/builds/${galleryPhotos[currentIndex]}`} alt={`Build ${currentIndex}`} />
+		<img src={galleryPhotos[currentIndex].src} alt={`Build ${currentIndex}`} />
 
 		<!-- Previous Button -->
 		<button class="prev-btn" on:click={showPrevious}>&larr;</button>
