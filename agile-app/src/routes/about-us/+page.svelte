@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
 	import Autoplay from 'embla-carousel-autoplay';
-	import { familyPhotos } from '$lib/familyPhotos';
+	import { familyPhotos } from '../../services/familyPhotos';
 
 	const plugin = Autoplay({ delay: 5000, stopOnInteraction: true });
 </script>
