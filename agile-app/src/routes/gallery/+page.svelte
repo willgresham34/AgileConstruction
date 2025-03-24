@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fetchPhotosFromPhotoset } from '$lib/flickrService';
+	import { flickrService } from '../../services/flickrService';
 
 	let galleryPhotos: any[] = [];
+	const galleryId =  '72177720324624790';
 
 	onMount(async () => {
-		galleryPhotos = await fetchPhotosFromPhotoset('72177720323058330');
+		galleryPhotos = await flickrService(galleryId);
 	});
 
 	// Current index of the modal
@@ -54,7 +55,7 @@
 				}}
 				on:keydown={handleKeydown}
 			>
-				<img src={photo.src} alt={`Build ${photo.title}`} />
+				<img src={photo.src} alt={photo.name} loading="lazy"/>
 			</div>
 		{/each}
 	</div>
