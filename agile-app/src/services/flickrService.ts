@@ -1,8 +1,8 @@
-const fetchFlickrPhotos = async (photoset_id: String) => {
-    const apiKey = "152d305ac8141342c1209a8255ee7232";
-    const user_id = "202495024@N06";
+import { API_KEY, USER_ID } from "../config.js";
 
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${apiKey}&photoset_id=${photoset_id}&user_id=${user_id}&format=json&nojsoncallback=1`;
+const fetchFlickrPhotos = async (galleryId: string) => {
+
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${API_KEY}&photoset_id=${galleryId}&user_id=${USER_ID}&format=json&nojsoncallback=1`;
 
     try {
         const response = await fetch(url);
@@ -29,6 +29,6 @@ const fetchFlickrPhotos = async (photoset_id: String) => {
     }
 };
 
-export const flickrService = async (photoset_id: String) => {
-    return await fetchFlickrPhotos(photoset_id);
+export const flickrService = async (galleryId: string) => {
+    return await fetchFlickrPhotos(galleryId);
 };
