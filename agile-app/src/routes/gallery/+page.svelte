@@ -1,5 +1,13 @@
 <script lang="ts">
-	import { galleryPhotos } from './../../lib/galleryPhotos';
+	import { onMount } from 'svelte';
+	import { flickrService } from '../../services/flickrService';
+
+	let galleryPhotos: any[] = [];
+	const galleryId =  '72177720324624790';
+
+	onMount(async () => {
+		galleryPhotos = await flickrService(galleryId);
+	});
 
 	// Current index of the modal
 	let currentIndex = 0;
@@ -47,7 +55,7 @@
 				}}
 				on:keydown={handleKeydown}
 			>
-				<img src={`/builds/${photo}`} alt={`Build ${i}`} />
+				<img src={photo.src} alt={photo.name} loading="lazy"/>
 			</div>
 		{/each}
 	</div>
@@ -57,7 +65,7 @@
 {#if showModal}
 	<div class="modal" role="dialog" aria-modal="true" aria-label="Enlarged image">
 		<button class="close-btn" on:click={closeModal} tabindex="0">&times;</button>
-		<img src={`/builds/${galleryPhotos[currentIndex]}`} alt={`Build ${currentIndex}`} />
+		<img src={galleryPhotos[currentIndex].src} alt={`Build ${currentIndex}`} />
 
 		<!-- Previous Button -->
 		<button class="prev-btn" on:click={showPrevious}>&larr;</button>
