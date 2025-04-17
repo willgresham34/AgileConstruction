@@ -116,7 +116,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-image: url('D_house.avif');
+		background-image: url('/D_house.avif');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
