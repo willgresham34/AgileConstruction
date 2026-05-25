@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
 	import Autoplay from 'embla-carousel-autoplay';
-	import { familyPhotos } from '$lib/familyPhotos';
+	import { familyPhotos } from '../../services/familyPhotos';
 
 	const plugin = Autoplay({ delay: 5000, stopOnInteraction: true });
 </script>
@@ -48,7 +48,7 @@
 			<Carousel.Content>
 				{#each familyPhotos as photo}
 					<Carousel.Item class=" basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-						><img src={`/family/${photo}`} alt="familyPhoto" /></Carousel.Item
+						><img src={`/family/${photo}`} alt="familyPhoto" loading="lazy"/></Carousel.Item
 					>
 				{/each}
 			</Carousel.Content>

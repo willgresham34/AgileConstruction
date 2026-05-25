@@ -5,7 +5,7 @@
 	import { Textarea } from '$lib/components/ui/textarea';
 	import * as Select from '$lib/components/ui/select';
 	import type { Selected } from 'bits-ui';
-	import emailjs from 'emailjs-com';
+	import emailjs from '@emailjs/browser';
 
 	let formData = {
 		email: '',

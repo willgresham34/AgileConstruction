@@ -1,7 +1,15 @@
 <script lang="ts">
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
 	import Autoplay from 'embla-carousel-autoplay';
-	import { carouselPhotos } from '$lib/carouselPhotos';
+	import { flickrService } from '../services/flickrService';
+	import { onMount } from 'svelte';
+
+	let carouselPhotos: any[] = [];
+	const galleryId = "72177720324650329";
+
+	onMount(async () => {
+		carouselPhotos = await flickrService(galleryId);
+	})
 
 	const plugin = Autoplay({ delay: 5000, stopOnInteraction: true });
 </script>
@@ -39,7 +47,7 @@
 			<Carousel.Content>
 				{#each carouselPhotos as photo}
 					<Carousel.Item class=" basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-						><img src={`/builds/${photo}`} alt="build1" /></Carousel.Item
+						><img src={photo.src} alt={photo.name} /></Carousel.Item
 					>
 				{/each}
 			</Carousel.Content>
@@ -108,7 +116,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-image: url('/builds/D_house.avif');
+		background-image: url('D_house.avif');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -142,8 +150,8 @@
 			0 4px 4px rgba(0, 0, 0, 0.5);
 
 		display: flex;
-		justify-content: center; /* Centers the image horizontally */
-		align-items: center; /* Centers the image vertically */
+		justify-content: center; 
+		align-items: center; 
 	}
 
 	.logo-image {
