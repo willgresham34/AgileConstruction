@@ -5,11 +5,11 @@
 	import { onMount } from 'svelte';
 
 	let carouselPhotos: any[] = [];
-	const galleryId = "72177720324650329";
+	const galleryId = '72177720324650329';
 
 	onMount(async () => {
 		carouselPhotos = await flickrService(galleryId);
-	})
+	});
 
 	const plugin = Autoplay({ delay: 5000, stopOnInteraction: true });
 </script>
@@ -36,7 +36,7 @@
 			<div class="mt-4">
 				<a
 					href="/contact"
-					class="bg-accent hover:bg-accent-foreground rounded-lg px-6 py-3 text-lg text-white"
+					class="rounded-lg bg-accent px-6 py-3 text-lg text-white hover:bg-accent-foreground"
 					>Get Free Estimate!</a
 				>
 			</div>
@@ -76,10 +76,12 @@
 			</section>
 		</div>
 		<div class="grid-item flex w-full items-center justify-center">
-			<div class="w-1/3 sm:w-2/3">
-				<div class="logoContainer bg-primary">
-					<img src="/Agile_Logo.JPEG" alt="logo" class="logo-image" />
-				</div>
+			<div class="flex w-full justify-center">
+				<img
+					src="/Agile_Logo.png"
+					alt="Agile Construction Logo"
+					class="h-auto w-[220px] object-contain sm:w-[290px] md:w-[390px] lg:w-[490px] xl:w-[590px]"
+				/>
 			</div>
 		</div>
 	</div>
@@ -137,28 +139,6 @@
 		height: 100%;
 		object-fit: cover;
 		aspect-ratio: 4 / 3;
-	}
-
-	.logoContainer {
-		padding: 0.5rem;
-		aspect-ratio: 1/1; /* Ensures the container maintains a square aspect ratio */
-		border: 0.25rem solid white;
-		border-radius: 50%;
-		text-align: center;
-		box-shadow:
-			0 4px 6px rgba(0, 0, 0, 0.5),
-			0 4px 4px rgba(0, 0, 0, 0.5);
-
-		display: flex;
-		justify-content: center; 
-		align-items: center; 
-	}
-
-	.logo-image {
-		max-width: 100%;
-		max-height: 100%;
-		object-fit: contain;
-		border-radius: 50%;
 	}
 
 	@media (max-width: 1280px) {

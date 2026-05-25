@@ -58,7 +58,7 @@
 		<div class=" grid grid-cols-1 gap-4 rounded-xl sm:grid-cols-2">
 			<!-- left col -->
 			<div
-				class="bg-accent-foreground grid grid-cols-2 gap-4 rounded-xl p-4 shadow-2xl sm:grid-cols-1"
+				class="grid grid-cols-2 gap-4 rounded-xl bg-accent-foreground p-4 shadow-2xl sm:grid-cols-1"
 			>
 				<div class="flex flex-col items-center justify-center">
 					<div class="text-gray-500 transition duration-200 hover:text-blue-500" id="phoneIcon">

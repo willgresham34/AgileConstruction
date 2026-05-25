@@ -42,11 +42,11 @@
 </script>
 
 <nav
-	class="bg-primary sticky top-0 z-10 flex items-center justify-between p-2 text-white shadow-xl"
+	class="sticky top-0 z-10 flex items-center justify-between bg-primary p-2 text-white shadow-xl"
 >
 	<div class="flex items-center">
 		<a href="/">
-			<img src="/Agile_Logo.JPEG" alt="Logo" height="60px" width="60px" />
+			<img src="/Agile_Logo.png" alt="Logo" height="60px" width="60px" />
 		</a>
 	</div>
 
@@ -59,7 +59,7 @@
 
 	<!-- Navigation Menu -->
 	<ul
-		class="nav-links bg-accent-foreground flex pr-4 text-white md:static md:flex md:translate-y-0 md:flex-row md:opacity-100"
+		class="nav-links flex bg-accent-foreground pr-4 text-white md:static md:flex md:translate-y-0 md:flex-row md:opacity-100"
 		class:hidden={!isMenuOpen}
 		class:translate-y-full={isMenuOpen}
 	>
