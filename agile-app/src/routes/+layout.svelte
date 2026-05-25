@@ -46,7 +46,7 @@
 >
 	<div class="flex items-center">
 		<a href="/">
-			<img src="/Agile_Logo.JPEG" alt="Logo" height="60px" width="60px" />
+			<img src="/Agile_Logo.png" alt="Logo" height="60px" width="60px" />
 		</a>
 	</div>
 
